@@ -44,13 +44,13 @@ jobs:
     - name: Remove the current data from the release
       uses: kopp/action-delete-release@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.CI_TOKEN }}
       with:
         tag_name: aurci2
     - name: Upload Files to Release
       uses: softprops/action-gh-release@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.CI_TOKEN }}
       with:
         tag_name: aurci2
         name: aurci build ${{ github.run_number }} from ${{ steps.date.outputs.date }}
